@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  # name of container
+  raven:
+    image: overcookedpanda/raven:25a2dbf
+    ports:
+      - 0.0.0.0:8766:8766   # p2p
+      - 0.0.0.0:8776:8766 # rpc
+    volumes:
+      - ./raven:/home/raven/.raven:rw
+    command: sh -c 'sleep 7 && ravend'
